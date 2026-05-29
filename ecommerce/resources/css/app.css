@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-brand-cream text-zinc-800 font-sans antialiased;
+    }
+
+    a {
+        @apply transition-colors;
+    }
+
+    /* Forms plugin: blue focus ring + components: focus:border-* → strip ring, single border colour. */
+    input:where(:not([type='checkbox']):not([type='radio']):not([type='hidden']):not([type='range'])):focus,
+    textarea:focus,
+    select:focus {
+        --tw-ring-offset-shadow: 0 0 #0000 !important;
+        --tw-ring-shadow: 0 0 #0000 !important;
+        box-shadow: none !important;
+    }
+
+    button:focus-visible {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+    }
+}
